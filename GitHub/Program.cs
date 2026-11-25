@@ -1,4 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
+using System.Security.Cryptography.X509Certificates;
 
 namespace GitHub
 {
@@ -32,6 +32,24 @@ namespace GitHub
                             Console.WriteLine("Wrong input");
                         }
                     }
+                    else if (userInput == 2)
+                    {
+                        Console.WriteLine("Enter name of new file");
+                        string nameOfFile = Console.ReadLine();
+                        
+                        if (!string.IsNullOrEmpty(nameOfFile)) 
+                        {
+                            Console.WriteLine("Enter text of file");
+                            string textOfFile = Console.ReadLine();
+                            
+                            if (!string.IsNullOrEmpty(textOfFile))
+                            {
+                                File file = new File(nameOfFile, textOfFile);
+                                files.Add(file);
+                                Console.WriteLine("Success");
+                            }
+                        }
+                    }
                     else if (userInput == 0)
                     {
                         Console.WriteLine("Goodbye");
@@ -48,6 +66,7 @@ namespace GitHub
         static void PrintInfo()
         {
             Console.WriteLine("Enter 1 to make a new repository");
+            Console.WriteLine("Enter 2 to add new file");
             Console.WriteLine("Enter 0 to stop the program");
         }
     }
