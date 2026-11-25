@@ -2,9 +2,10 @@ namespace GitHub
 {
     internal class Commit
     {
-        public Commit(string name) 
+        public Commit(string name, List<File> files) 
         {
             Name = name;
+            Files = files;
         }
         
         public string Name { get; set; }
